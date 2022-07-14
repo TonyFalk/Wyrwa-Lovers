@@ -1,0 +1,40 @@
+name: WyrwaLovers
+version: '0.7.1'
+main: net.pullolo.wyrwalovers.Main
+api-version: 1.19
+author: Pullolo
+description: A plugin made by Pullolo which enhances vanilla Minecraft!
+softdepend: [Vault]
+commands:
+  giveitem:
+    description: Gives you custom items
+    usage: /<command> <player> <itemName/"list">
+    permission: wl.give
+  set:
+    description: Sets player stats
+    usage: /<command> <player> <"level"> <amount>
+    permission: wl.set
+  heal:
+    description: Heals you or the target
+    usage: /<command> <player>
+    permission: wl.heal
+  stats:
+    description: Displays your stats
+    usage: /<command> <player>
+  ehp:
+    description: Displays effective health
+    usage: /<command>
+  time:
+    description: Shows time
+    usage: /<command>
+  xp:
+    description: Shows your xp
+    usage: /<command>
+  invis:
+    description: Set yourself invisible
+    usage: /<command>
+    permission: wl.invis
+  spawnmob:
+    description: Spawn custom mobs
+    usage: /<command> <mob> <player/x> <y> <z>
+    permission: wl.spawn
