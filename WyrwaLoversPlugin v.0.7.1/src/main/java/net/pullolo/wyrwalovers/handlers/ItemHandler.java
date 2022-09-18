@@ -124,6 +124,22 @@ public class ItemHandler extends BukkitRunnable implements Listener {
                             } else player.sendMessage(ChatColor.RED + "You dont have enough Mana!");
                         } else player.sendMessage(ChatColor.RED + "This item is on Cooldown for " + CooldownAPI.getCooldownForPlayerInt("HW", player) + "s.");
                     }
+                     if (event.getItem().getItemMeta().getDisplayName().equals(EnderSword.getItemMeta().getDisplayName())){
+                        if (!CooldownAPI.isOnCooldown("ES", player)){
+                            if (entityMap.get(player).getMana() >= calcBaseManaWithBonuses(60, player)){
+                                CooldownAPI.addCooldown("ES", player, 20);
+                                entityMap.get(player).setMana(entityMap.get(player).getMana() - calcBaseManaWithBonuses(60, player));
+
+                                player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20, 1));
+                                Location loc = player.getLocation();
+                                Vector dir = loc.getDirection();
+                                dir.normalize();
+                                dir.multiply(10);
+                                loc.add(dir);
+                                player.teleport(loc);
+                            } else player.sendMessage(ChatColor.RED + "You dont have enough Mana!");
+                        } else player.sendMessage(ChatColor.RED + "This item is on Cooldown for " + CooldownAPI.getCooldownForPlayerInt("ES", player) + "s.");
+                    }
 
                     if (event.getItem().getItemMeta().getDisplayName().equals(healingStaff.getItemMeta().getDisplayName())){
                         if (!CooldownAPI.isOnCooldown("HS", player)){
