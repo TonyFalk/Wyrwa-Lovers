@@ -47,6 +47,7 @@ public class Items {
     public static ItemStack heavySword;
     public static ItemStack berserkerAxe;
     public static ItemStack pullingBow;
+    public static ItemStack EnderSword;
 
     public static ItemStack fieryCore;
     public static ItemStack tpCore;
@@ -172,6 +173,7 @@ public class Items {
         createHeavySword();
         createBerserkerAxe();
         createPullingBow();
+        createEnderSword();
 
         createAspectOfEnd();
         createFlamingBow();
@@ -2046,6 +2048,26 @@ public class Items {
         item.setItemMeta(meta);
         woodenSword = item;
         customItems.add("§fWooden Sword");
+    }
+        private static void createEnderSword(){
+        ItemStack item = new ItemStack(Material.DIAMOND_SWORD, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§dEnder Sword");
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        List<String> lore = new ArrayList<>();
+
+        lore.add("§7Damage: §c+20");
+        lore.add("§7Critical Damage: §c+10");
+        lore.add("");
+        lore.add("§6Item Ability: End enchanced");
+        lore.add("§7You can teleport randomly");
+        lore.add("§7On Right Click");
+        lore.add("§d§lMythic SWORD");
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        EnderSword= item;
+        customItems.add("§fEndSword Sword");
     }
 
     public static ItemStats getItemStats(ItemStack item){
